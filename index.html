@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./css/style.css" />
 
     <style>
-        /* -------- SPA PAGE SYSTEM -------- */
+        /* -------- PAGE SYSTEM -------- */
         .page {
             display: none;
             animation: fadeIn .25s ease-in;
@@ -402,21 +402,18 @@
             color: #0f1f4d;
         }
 
-        /* section title same as Professional Experience */
         .section-title {
             font-weight: 700;
             color: #0f1f4d;
             margin-left: 6px;
         }
 
-        /* horizontal line */
         .section-divider {
             height: 1px;
             background: rgba(15, 31, 77, 0.25);
             margin: 8px 0 20px;
         }
 
-        /* vertical divider between education blocks */
         .education-row .vr {
             background: linear-gradient(to bottom,
                     transparent,
@@ -424,8 +421,13 @@
                     transparent);
             opacity: 0.4;
         }
-
-        /* tighter spacing */
+        
+        @media (max-width: 768px){
+          .education-row .vr{
+            display: none !important;
+          }
+        }
+        
         .education-card p {
             font-size: 0.9rem;
             color: #0f1f4d;
@@ -491,13 +493,10 @@
             border: 1px dashed #1f3c88;
         }
 
-        /* ---------------- PROJECT CAROUSELS ---------------- */
-
         .project-carousel {
             position: relative;
         }
 
-        /* common arrow container */
         .project-carousel .carousel-control-prev,
         .project-carousel .carousel-control-next {
             width: auto;
@@ -506,7 +505,6 @@
             opacity: 1;
         }
 
-        /* arrow positions */
         .project-carousel .carousel-control-prev {
             left: -3rem;
         }
@@ -515,7 +513,6 @@
             right: -3rem;
         }
 
-        /* remove bootstrap icons */
         .project-carousel .carousel-control-prev-icon,
         .project-carousel .carousel-control-next-icon {
             background-image: none;
@@ -523,7 +520,6 @@
             height: auto;
         }
 
-        /* custom arrows */
         .project-carousel .carousel-control-prev::after,
         .project-carousel .carousel-control-next::after {
             font-size: 36px;
@@ -671,8 +667,7 @@
         }
 
         /* certificate section ends here */
-
-
+        
         /* contact section starts here */
 
         .contact-wrapper {
@@ -811,11 +806,11 @@
         </div>
     </header>
 
-    <!-- ================= MAIN CONTENT ================= -->
+    <!--  MAIN CONTENT  -->
 
     <main id="content">
 
-        <!-- ========== HOME SECTION (FROM index.html) ========== -->
+        <!--  HOME SECTION -->
 
         <section id="home" class="page active">
             <!-- --------------------------- Home section starts here ----------------------------->
@@ -2072,5 +2067,6 @@
     </script>
 
 </body>
+
 
 </html>
