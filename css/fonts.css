@@ -1,0 +1,21 @@
+/*@font-face*/
+@font-face {
+    font-family: "Poppins";
+    src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url('../fonts/Inter/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Atkinson_Hyperlegible_Mono";
+    src: url('../fonts/Atkinson_Hyperlegible_Mono/static/AtkinsonHyperlegibleMono-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
