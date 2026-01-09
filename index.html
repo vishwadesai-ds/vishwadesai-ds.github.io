@@ -608,6 +608,132 @@
             pointer-events: none;
         }
 
+        /* badges section starts here */
+        :root {
+            --s: 75px;  /* Size of the hexagon */
+            --m: 2px;   /* Tiny gap for precision */
+            --blue-overlay: rgba(11, 42, 122, 0.85);
+        }
+
+        @media (max-width: 992px) {
+        :root {
+            --s: 64px;
+            --m: 2px;
+        }
+
+        .badge-honeycomb {
+            padding-bottom: 60px;
+        }
+        }
+
+        @media (max-width: 768px) {
+        :root {
+            --s: 56px;
+            --m: 1.5px;
+        }
+
+        .badge-honeycomb {
+            padding-bottom: 50px;
+        }
+        }
+
+        @media (max-width: 480px) {
+        :root {
+            --s: 48px;
+            --m: 1px;
+        }
+
+        .badge-honeycomb {
+            padding-bottom: 40px;
+        }
+        }
+
+        @media (max-width: 360px) {
+        :root {
+            --s: 42px;
+        }
+        }
+
+        .badge-honeycomb {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0px 20px 80px 20px; /* Extra bottom padding for the drop */
+        }
+
+        .badge-item {
+            position: relative;
+            width: var(--s);
+            height: calc(var(--s) * 1.1547);
+            /* Negative margin pulls them together horizontally */
+            margin-left: calc(var(--s) * -0.45 + var(--m));
+            clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: grayscale(1) brightness(0.8);
+            z-index: 1;
+        }
+
+        .badge-item:first-child {
+            margin-left: 0;
+        }
+
+        /* THE FIX: Interlocking Zig-Zag */
+        /* This drops every second badge exactly into the gap of the first */
+        .badge-item:nth-child(even) {
+            transform: translateY(calc(var(--s) * 0.90 + var(--m)));
+        }
+
+        .badge-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Dark Blue Overlay */
+        .badge-item::after {
+            content: attr(data-title);
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--blue-overlay);
+            color: #ffffff;
+            font-size: 0.55rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 8px;
+            text-transform: uppercase;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* 3D SATURATED HOVER */
+        .badge-item:hover {
+            z-index: 10;
+            filter: grayscale(0) saturate(2) brightness(1.2);
+            /* We must include the translateY for even items so they don't jump */
+            /* Adjusting lift to be relative to their position */
+        }
+
+        /* Hover lift for odd items */
+        .badge-item:nth-child(odd):hover {
+            transform: scale(1.1) translateY(-12px);
+        }
+
+        /* Hover lift for even items (maintaining their dropped position) */
+        .badge-item:nth-child(even):hover {
+            transform: translateY(calc(var(--s) * 0.90 + var(--m))) scale(1.1) translateY(-12px);
+        }
+
+        .badge-item:hover::after {
+            opacity: 0;
+        }
+        /* badges section ends here */
         /* kaggle section ends here */
 
         /* certificate section starts here */
@@ -1713,6 +1839,59 @@
                     </div>
 
                 </div>
+            <!-- ------------------------------- Badge section ends here -------------------------------->
+            <section class="container">
+            <div class="custom-card p-4 kaggle-badge-card">
+
+                <h3 class="section-title">Kaggle Badges</h3>
+                    <div class="cert-subtitle ms-2">
+                        Each hexagon tells a story — hover to discover.
+                    </div>
+                <div class="section-divider"></div>
+
+                <div class="badge-honeycomb">
+
+                    <div class="badge-item" data-title="Getting Started Competitor">
+                    <img src="./badges/getting-started.png" alt="Getting Started">
+                    </div>
+
+                    <div class="badge-item" data-title="Python Coder">
+                    <img src="./badges/python.png" alt="Python Coder">
+                    </div>
+
+                    <div class="badge-item" data-title="Code Uploader">
+                    <img src="./badges/code-uploader.png" alt="Code Uploader">
+                    </div>
+
+                    <div class="badge-item" data-title="Code Forker">
+                    <img src="./badges/code-forker.png" alt="Code Forker">
+                    </div>
+
+                    <div class="badge-item" data-title="Kaggle Community Member">
+                    <img src="./badges/community.png" alt="Community">
+                    </div>
+
+                    <div class="badge-item" data-title="Stylish">
+                    <img src="./badges/stylish.png" alt="Stylish">
+                    </div>
+
+                    <div class="badge-item" data-title="Vampire">
+                    <img src="./badges/vampire.png" alt="Vampire">
+                    </div>
+
+                    <div class="badge-item" data-title="Learner">
+                    <img src="./badges/learner.png" alt="Learner">
+                    </div>
+
+                    <div class="badge-item" data-title="7 Day Login Streak">
+                    <img src="./badges/streak.png" alt="Streak">
+                    </div>
+
+                </div>
+                </div>
+            </div>
+            </section>
+            <!-- ------------------------------- Badge section ends here -------------------------------->
             </section>
             <!-- ------------------------------- Kaggle section ends here -------------------------------->
         </section>
@@ -2074,4 +2253,5 @@
 
 
 </html>
+
 
