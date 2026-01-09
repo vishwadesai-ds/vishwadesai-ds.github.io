@@ -610,7 +610,7 @@
 
         /* badges section starts here */
         :root {
-            --s: 75px;  /* Size of the hexagon */
+            --s: 60px;  /* Size of the hexagon */
             --m: 2px;   /* Tiny gap for precision */
             --blue-overlay: rgba(11, 42, 122, 0.85);
         }
@@ -634,6 +634,15 @@
 
         .badge-honeycomb {
             padding-bottom: 50px;
+        }
+        }
+
+        @media (max-width: 600px) {
+
+        .badge-honeycomb{
+            max-width: 320px;      
+            margin: 0 auto;       
+            padding-bottom: 60px;
         }
         }
 
@@ -681,7 +690,7 @@
         /* THE FIX: Interlocking Zig-Zag */
         /* This drops every second badge exactly into the gap of the first */
         .badge-item:nth-child(even) {
-            transform: translateY(calc(var(--s) * 0.90 + var(--m)));
+            transform: translateY(calc(var(--s) * 0.88 + var(--m)));
         }
 
         .badge-item img {
@@ -701,7 +710,7 @@
             justify-content: center;
             background: var(--blue-overlay);
             color: #ffffff;
-            font-size: 0.55rem;
+            font-size: 0.45rem;
             font-weight: 700;
             text-align: center;
             padding: 8px;
@@ -2253,6 +2262,7 @@
 
 
 </html>
+
 
 
 
