@@ -1857,7 +1857,7 @@
 
                 </div>
             <!-- ------------------------------- Badge section ends here -------------------------------->
-<section class="container ">
+            <section class="container mt-3">
             <div class="custom-card p-4 kaggle-badge-card">
 
                 <h3 class="section-title">Kaggle Badges</h3>
@@ -2093,8 +2093,6 @@
 
                                     <button type="submit" class="btn-contact mt-1">Send</button>
 
-                                    <p id="sStatus"></p>
-
                                 </form>
 
                                 <small id="sStatus" class="status-text"></small>
@@ -2190,7 +2188,7 @@
                 const email = cemail.value.trim();
                 const phone = cphone.value.trim();
                 const message = cmessage.value.trim();
-                const status = cStatus;
+                const status = document.getElementById("cStatus");;
 
                 if (name.length < 2) return status.textContent = "❌ Name too short";
                 if (!isValidEmail(email)) return status.textContent = "❌ Invalid email";
@@ -2231,7 +2229,7 @@
 
                 const email = semail.value.trim();
                 const phone = sphone.value.trim();
-                const status = sStatus;
+                const status = document.getElementById("sStatus");;
 
                 if (!email && !phone)
                     return status.textContent = "❌ Enter email or phone";
@@ -2270,6 +2268,7 @@
 
 
 </html>
+
 
 
 
