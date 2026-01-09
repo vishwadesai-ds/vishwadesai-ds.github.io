@@ -610,57 +610,77 @@
 
         /* badges section starts here */
         :root {
-            --s: 60px;  /* Size of the hexagon */
-            --m: 2px;   /* Tiny gap for precision */
+            --s: 85px;  /* Base size */
+            --gap: 2px; /* Physical space between hex edges */
             --blue-overlay: rgba(11, 42, 122, 0.85);
         }
 
-        @media (max-width: 992px) {
-        :root {
-            --s: 64px;
-            --m: 2px;
-        }
-
         .badge-honeycomb {
-            padding-bottom: 60px;
-        }
-        }
-
-        @media (max-width: 768px) {
-        :root {
-            --s: 56px;
-            --m: 1.5px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 60px 10px 100px 10px;
+            align-items: flex-start;
         }
 
-        .badge-honeycomb {
-            padding-bottom: 50px;
-        }
-        }
-
-        @media (max-width: 600px) {
-
-        .badge-honeycomb{
-            max-width: 320px;      
-            margin: 0 auto;       
-            padding-bottom: 60px;
-        }
+        .badge-item {
+            position: relative;
+            width: var(--s);
+            height: calc(var(--s) * 1.1547);
+            margin-left: calc(var(--s) * -0.25 + (var(--gap) * 2));
+            clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: grayscale(1) brightness(0.9);
+            z-index: 1;
         }
 
-        @media (max-width: 480px) {
-        :root {
-            --s: 48px;
-            --m: 1px;
+        .badge-item:first-child {
+            margin-left: 0;
         }
 
-        .badge-honeycomb {
-            padding-bottom: 40px;
-        }
+        .badge-item:nth-child(even) {
+            transform: translateY(calc(var(--s) * 0.5 + var(--gap)));
         }
 
-        @media (max-width: 360px) {
-        :root {
-            --s: 42px;
+        .badge-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            display: block;
+            padding: 10%; 
         }
+
+        .badge-item:hover {
+            z-index: 10;
+            filter: grayscale(0) saturate(2) brightness(1.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .badge-item:nth-child(odd):hover {
+            transform: scale(1.3) translateY(-15px);
+        }
+
+        .badge-item:nth-child(even):hover {
+            transform: scale(1.3) translateY(-15px);
+        }
+
+        @media (max-width: 431px) {
+            :root {
+                --s: 50px; 
+                --gap: 1.5px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            :root {
+                --s: 46px;
+            }
+        }
+
+        @media screen and (-webkit-min-device-pixel-ratio: 2) {
+            .badge-item {
+                outline: 1px solid transparent; 
+            }
         }
 
         .badge-honeycomb {
@@ -672,6 +692,7 @@
         }
 
         .badge-item {
+            --y: 0px;
             position: relative;
             width: var(--s);
             height: calc(var(--s) * 1.1547);
@@ -687,10 +708,9 @@
             margin-left: 0;
         }
 
-        /* THE FIX: Interlocking Zig-Zag */
-        /* This drops every second badge exactly into the gap of the first */
         .badge-item:nth-child(even) {
-            transform: translateY(calc(var(--s) * 0.88 + var(--m)));
+            --y: calc(var(--s) * 0.88 + var(--m));
+            transform: translateY(var(--y));
         }
 
         .badge-item img {
@@ -700,7 +720,6 @@
             display: block;
         }
 
-        /* Dark Blue Overlay */
         .badge-item::after {
             content: attr(data-title);
             position: absolute;
@@ -721,23 +740,12 @@
             pointer-events: none;
         }
 
-        /* 3D SATURATED HOVER */
         .badge-item:hover {
             z-index: 10;
             filter: grayscale(0) saturate(2) brightness(1.2);
-            /* We must include the translateY for even items so they don't jump */
-            /* Adjusting lift to be relative to their position */
+            transform: translateY(calc(var(--y) - 12px)) scale(1.1);
         }
 
-        /* Hover lift for odd items */
-        .badge-item:nth-child(odd):hover {
-            transform: scale(1.1) translateY(-12px);
-        }
-
-        /* Hover lift for even items (maintaining their dropped position) */
-        .badge-item:nth-child(even):hover {
-            transform: translateY(calc(var(--s) * 0.90 + var(--m))) scale(1.1) translateY(-12px);
-        }
 
         .badge-item:hover::after {
             opacity: 0;
@@ -1849,7 +1857,7 @@
 
                 </div>
             <!-- ------------------------------- Badge section ends here -------------------------------->
-            <section class="container mt-3">
+<section class="container ">
             <div class="custom-card p-4 kaggle-badge-card">
 
                 <h3 class="section-title">Kaggle Badges</h3>
@@ -2262,6 +2270,7 @@
 
 
 </html>
+
 
 
 
