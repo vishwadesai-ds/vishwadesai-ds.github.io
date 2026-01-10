@@ -610,146 +610,128 @@
 
         /* badges section starts here */
         :root {
-            --s: 85px;  /* Base size */
-            --gap: 2px; /* Physical space between hex edges */
+            --hex-width: 80px; 
+            --hex-height: calc(var(--hex-width) * 1.1547);
+            --grid-gap: 1px;
+            --grid-gap-hover: 0px;
+            --row-spacing: -3px;
             --blue-overlay: rgba(11, 42, 122, 0.85);
         }
 
         .badge-honeycomb {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(8, var(--hex-width));
+            grid-row-gap: var(--row-spacing);
+            grid-column-gap: var(--grid-gap);
             justify-content: center;
-            padding: 60px 10px 100px 10px;
-            align-items: flex-start;
+            padding: 20px 10px;
+            margin-left: calc(var(--hex-width) / 4);
         }
 
         .badge-item {
             position: relative;
-            width: var(--s);
-            height: calc(var(--s) * 1.1547);
-            margin-left: calc(var(--s) * -0.25 + (var(--gap) * 2));
-            clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            filter: grayscale(1) brightness(0.9);
+            width: var(--hex-width);
+            height: var(--hex-height);
+            margin-bottom: -22px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            transition: all 0.3s ease;
             z-index: 1;
         }
 
-        .badge-item:first-child {
-            margin-left: 0;
+        .badge-item:nth-child(16n+9), 
+        .badge-item:nth-child(16n+10), 
+        .badge-item:nth-child(16n+11), 
+        .badge-item:nth-child(16n+12), 
+        .badge-item:nth-child(16n+13), 
+        .badge-item:nth-child(16n+14), 
+        .badge-item:nth-child(16n+15), 
+        .badge-item:nth-child(16n+16) {
+            transform: translateX(calc(-50% - (var(--grid-gap-hover) / 2)));
         }
 
-        .badge-item:nth-child(even) {
-            transform: translateY(calc(var(--s) * 0.5 + var(--gap)));
+        @media (max-width: 768px) {
+            :root {
+                --hex-width: 70px;
+                --grid-gap: 1px;
+            }
+            .badge-honeycomb {
+                grid-template-columns: repeat(4, var(--hex-width));
+            }
+            .badge-item:nth-child(n) { transform: none; }
+            .badge-item:nth-child(8n+5), 
+            .badge-item:nth-child(8n+6), 
+            .badge-item:nth-child(8n+7), 
+            .badge-item:nth-child(8n+8) {
+                transform: translateX(calc(-50% - (var(--grid-gap-hover) / 2)));
+            }
+        }
+
+        @media (max-width: 414px) {
+            :root {
+                --hex-width: 60px; 
+                --grid-gap: 1px;
+            }
+            .badge-honeycomb {
+                grid-template-columns: repeat(3, var(--hex-width));
+                margin-left: calc(var(--hex-width) / 4);
+            }
+            .badge-item:nth-child(n) { transform: none; }
+            .badge-item:nth-child(6n+4), 
+            .badge-item:nth-child(6n+5), 
+            .badge-item:nth-child(6n+6) {
+                transform: translateX(calc(-50% - (var(--grid-gap-hover) / 2)));
+            }
         }
 
         .badge-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; 
-            display: block;
-            padding: 10%; 
-        }
-
-        .badge-item:hover {
-            z-index: 10;
-            filter: grayscale(0) saturate(2) brightness(1.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .badge-item:nth-child(odd):hover {
-            transform: scale(1.3) translateY(-15px);
-        }
-
-        .badge-item:nth-child(even):hover {
-            transform: scale(1.3) translateY(-15px);
-        }
-
-        @media (max-width: 431px) {
-            :root {
-                --s: 50px; 
-                --gap: 1.5px;
-            }
-        }
-
-        @media (max-width: 375px) {
-            :root {
-                --s: 46px;
-            }
-        }
-
-        @media screen and (-webkit-min-device-pixel-ratio: 2) {
-            .badge-item {
-                outline: 1px solid transparent; 
-            }
-        }
-
-        .badge-honeycomb {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0px 20px 80px 20px; /* Extra bottom padding for the drop */
-        }
-
-        .badge-item {
-            --y: 0px;
-            position: relative;
-            width: var(--s);
-            height: calc(var(--s) * 1.1547);
-            /* Negative margin pulls them together horizontally */
-            margin-left: calc(var(--s) * -0.45 + var(--m));
-            clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            filter: grayscale(1) brightness(0.8);
-            z-index: 1;
-        }
-
-        .badge-item:first-child {
-            margin-left: 0;
-        }
-
-        .badge-item:nth-child(even) {
-            --y: calc(var(--s) * 0.88 + var(--m));
-            transform: translateY(var(--y));
-        }
-
-        .badge-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
+            width: 100%; height: 100%;
+            object-fit: contain; padding: 15%;
         }
 
         .badge-item::after {
             content: attr(data-title);
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
             background: var(--blue-overlay);
-            color: #ffffff;
-            font-size: 0.45rem;
-            font-weight: 700;
-            text-align: center;
-            padding: 8px;
-            text-transform: uppercase;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-            z-index: 2;
-            pointer-events: none;
+            color: white; font-size: 0.4rem; font-weight: 700;
+            text-align: center; padding: 5px; text-transform: uppercase;
+            transition: opacity 0.2s;
         }
 
         .badge-item:hover {
             z-index: 10;
-            filter: grayscale(0) saturate(2) brightness(1.2);
-            transform: translateY(calc(var(--y) - 12px)) scale(1.1);
+            filter: brightness(1.2) saturate(1.2);
+        }
+        .badge-item:hover {
+            transform: scale(1.3) translateY(-15px);
+        }
+        .badge-item:nth-child(16n+9):hover, 
+        .badge-item:nth-child(16n+10):hover, 
+        .badge-item:nth-child(16n+11):hover, 
+        .badge-item:nth-child(16n+12):hover, 
+        .badge-item:nth-child(16n+13):hover, 
+        .badge-item:nth-child(16n+14):hover, 
+        .badge-item:nth-child(16n+15):hover, 
+        .badge-item:nth-child(16n+16):hover {
+            transform: translateX(calc(-50% - (var(--grid-gap-hover) / 2))) scale(1.3) translateY(-15px);
+        }
+        @media (max-width: 768px) {
+            .badge-item:nth-child(8n+5):hover, 
+            .badge-item:nth-child(8n+6):hover, 
+            .badge-item:nth-child(8n+7):hover, 
+            .badge-item:nth-child(8n+8):hover {
+                transform: translateX(calc(-50% - (var(--grid-gap-hover) / 2))) scale(1.3) translateY(-15px);
+            }
+        }
+        @media (max-width: 414px) {
+            .badge-item:nth-child(6n+4):hover, 
+            .badge-item:nth-child(6n+5):hover, 
+            .badge-item:nth-child(6n+6):hover {
+                transform: translateX(calc(-50% - (var(--grid-gap-hover) / 2))) scale(1.3) translateY(-15px);
+            }
         }
 
-
-        .badge-item:hover::after {
-            opacity: 0;
-        }
+        .badge-item:hover::after { opacity: 0; }
         /* badges section ends here */
         /* kaggle section ends here */
 
@@ -1872,24 +1854,28 @@
                     <img src="./badges/getting-started.png" alt="Getting Started">
                     </div>
 
+                    <div class="badge-item" data-title="Kaggle Community Member">
+                    <img src="./badges/community.png" alt="Community">
+                    </div>
+
                     <div class="badge-item" data-title="Python Coder">
                     <img src="./badges/python.png" alt="Python Coder">
+                    </div>
+
+                    <div class="badge-item" data-title="7 Day Login Streak">
+                    <img src="./badges/streak.png" alt="Streak">
                     </div>
 
                     <div class="badge-item" data-title="Code Uploader">
                     <img src="./badges/code-uploader.png" alt="Code Uploader">
                     </div>
 
-                    <div class="badge-item" data-title="Code Forker">
-                    <img src="./badges/code-forker.png" alt="Code Forker">
-                    </div>
-
-                    <div class="badge-item" data-title="Kaggle Community Member">
-                    <img src="./badges/community.png" alt="Community">
-                    </div>
-
                     <div class="badge-item" data-title="Stylish">
                     <img src="./badges/stylish.png" alt="Stylish">
+                    </div>
+
+                    <div class="badge-item" data-title="Code Forker">
+                    <img src="./badges/code-forker.png" alt="Code Forker">
                     </div>
 
                     <div class="badge-item" data-title="Vampire">
@@ -1900,8 +1886,8 @@
                     <img src="./badges/learner.png" alt="Learner">
                     </div>
 
-                    <div class="badge-item" data-title="7 Day Login Streak">
-                    <img src="./badges/streak.png" alt="Streak">
+                    <div class="badge-item" data-title="Collector">
+                    <img src="./badges/collector.png" alt="Collector">
                     </div>
 
                 </div>
@@ -2268,6 +2254,7 @@
 
 
 </html>
+
 
 
 
