@@ -20,15 +20,15 @@
     <link rel="stylesheet" href="./css/style.css" />
 
     <style>
-        /* -------- PAGE SYSTEM -------- */
-        .page {
+        /* -------- SPA PAGE SYSTEM -------- */
+        /* .page {
             display: none;
             animation: fadeIn .25s ease-in;
         }
 
         .page.active {
             display: block;
-        }
+        } */
 
         @keyframes fadeIn {
             from {
@@ -178,24 +178,42 @@
 
         /* home section starts here */
 
-        section {
+        /* section {
             scroll-margin-top: 100px;
         }
 
+        .Intro-section .container {
+            max-width: 1350px;
+        }
+
         .Intro-section {
+            padding-top: 30px;
             margin-top: 30px;
             color: #0f1f4d;
+            padding-bottom: 30px !important;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .Intro-section .col-lg-12 {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .Intro-head {
             color: #0f1f4d;
+            font-size: 3rem;
         }
 
         .intro-divider {
             height: 2px;
             background-color: #0f1f4d;
-            margin: 1.2rem 0 1.2rem;
-            width: 100%;
+            margin: 1.2rem auto;
+            width: 60%;
+        }
+
+        .Intro-section h5 {
+            font-size: 1.2rem;
         }
 
         .intro-card {
@@ -205,14 +223,19 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             line-height: 1.7;
             transition: .25s ease-in-out;
+            padding: 30px 40px;
+            text-align: center;
         }
 
         .intro-card:hover {
             transform: translateY(-4px);
         }
 
+        .Intro-section .row {
+            justify-content: center;
+        }
+
         .Intro-text {
-            /*text-transform: uppercase;*/
             letter-spacing: 2px;
             font-size: 0.9rem;
             line-height: 1.8;
@@ -221,6 +244,123 @@
             font-family: 'Atkinson_Hyperlegible_Mono', sans-serif;
         }
 
+        .Intro-section .mt-4 {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        } */
+
+        .Intro-section {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            color: #0f1f4d;
+        }
+
+        .Intro-head {
+            font-size: 2.8rem;
+        }
+
+        .intro-divider {
+            height: 2px;
+            background-color: #0f1f4d;
+            margin: 1rem 0 1.5rem;
+            width: 100%;
+        }
+
+        #home {
+        position: relative; /* IMPORTANT */
+        }
+
+        .tag-wrapper {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+
+        width: 260px;
+        }
+
+        .tag-wrapper::before {
+        content: "";
+        position: absolute;
+
+        top: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 3px;
+        height: 35px;
+
+        background: linear-gradient(#e0e6ff, #1f3c88);
+        }
+
+        .open-to-badge {
+        width: 100%;
+        padding: 36px 20px 16px;
+
+        background: linear-gradient(145deg, #2d4ea2, #1f3c88);
+        color: #fff;
+
+        border-radius: 12px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+
+        clip-path: polygon(
+            15% 0%, 
+            85% 0%, 
+            100% 20%, 
+            100% 100%, 
+            0% 100%, 
+            0% 20%
+        );
+
+        box-shadow: 
+            0 10px 25px rgba(0,0,0,0.3),
+            inset 0 2px 4px rgba(255,255,255,0.2),
+            inset 0 -3px 6px rgba(0,0,0,0.3);
+
+        transform: rotate(-2deg);
+
+        position: relative;
+        }
+
+        .open-to-badge {
+        transform: rotate(-2deg);
+        }
+
+        .open-to-badge:hover {
+        transform: perspective(500px) rotateX(0deg) scale(1.03);
+        box-shadow: 
+            0 12px 25px rgba(0, 0, 0, 0.35),
+            inset 0 2px 6px rgba(255, 255, 255, 0.25),
+            inset 0 -4px 8px rgba(0, 0, 0, 0.35);
+        }
+
+        .open-to-badge::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 14px;
+        height: 14px;
+        background: #0f1f4b; /* darker than card */
+
+        border-radius: 50%;
+        box-shadow: inset 0 2px 3px rgba(0,0,0,0.6);
+        }
+
+        @media (max-width: 768px) {
+        .tag-wrapper {
+            position: static;
+            margin: 15px auto;
+        }
+
+        .open-to-badge {
+            transform: none;
+        }
+        }
         /* home section ends here */
 
         /* footer section starts here */
@@ -308,8 +448,8 @@
         /* paragraph */
         .about-intro-para {
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            line-height: 1.8;
+            font-size: 1.05rem;
+            line-height: 1.7;
             color: #0f1f4d;
             text-align: justify;
         }
@@ -354,6 +494,10 @@
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
         }
 
+        .highlight-text {
+            color: #1f3c88; /* or your theme color */
+            font-weight: 600;
+        }
         /* about section ends here */
 
         .custom-card {
@@ -386,7 +530,7 @@
             box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
         }
 
-        .skill-pills {
+        /* .skill-pills {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -400,20 +544,96 @@
             font-size: 0.85rem;
             font-weight: 500;
             color: #0f1f4d;
+        } */
+
+        .skills-section {
+            margin-top: 40px;
+            color: #0f1f4d;
         }
 
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Card Style */
+        .skill-card {
+            background: #cfdff4;
+            padding: 20px;
+            border-left: 8px solid #1f3c88; /* SAME AS transition-card */
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            transition: 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Title */
+        .skill-card h5 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Pills */
+        .skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-pills span {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1.5px solid #0f1f4d;
+            font-size: 0.9rem;
+            background: #cfdff4;
+            transition: 0.2s;
+        }
+
+        .skill-pills span:hover {
+            background: #0f1f4d;
+            color: #cfdff4;
+        }
+
+        section {
+            padding: 50px 0;
+        }
+        /* section title same as Professional Experience */
         .section-title {
             font-weight: 700;
             color: #0f1f4d;
             margin-left: 6px;
         }
 
+        /* horizontal line */
         .section-divider {
             height: 1px;
             background: rgba(15, 31, 77, 0.25);
             margin: 8px 0 20px;
         }
 
+        .section-header {
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-weight: 700;
+            color: #0f1f4d;
+            margin-bottom: 8px;
+        }
+
+        .section-header .line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #1f3c88, transparent);
+            border-radius: 2px;
+        }
+
+        /* vertical divider between education blocks */
         .education-row .vr {
             background: linear-gradient(to bottom,
                     transparent,
@@ -421,17 +641,19 @@
                     transparent);
             opacity: 0.4;
         }
-        
+
         @media (max-width: 768px){
-          .education-row .vr{
+        .education-row .vr{
             display: none !important;
-          }
-        
-          .education-row > div{
-            margin-bottom: 10px;
-          }
         }
-        
+
+        /* add subtle spacing between education blocks */
+        .education-row > div{
+            margin-bottom: 10px;
+        }
+        }
+
+        /* tighter spacing */
         .education-card p {
             font-size: 0.9rem;
             color: #0f1f4d;
@@ -449,6 +671,10 @@
             margin-bottom: 30px;
         }
 
+        .timeline-item:hover {
+            transform: translateX(6px);
+        }
+
         .timeline-dot {
             position: absolute;
             left: -9px;
@@ -457,6 +683,10 @@
             height: 14px;
             background: #1f3c88;
             border-radius: 50%;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            border: 2px solid #cfdff4;
         }
 
         .timeline-content h6 {
@@ -497,68 +727,74 @@
             border: 1px dashed #1f3c88;
         }
 
-        .project-carousel {
-            position: relative;
-        }
+        /* ---------------- PROJECT CAROUSELS ---------------- */
 
+        /* BUTTON BASE */
         .project-carousel .carousel-control-prev,
         .project-carousel .carousel-control-next {
-            width: auto;
+            width: 44px;
+            height: 44px;
             top: 50%;
             transform: translateY(-50%);
+            border-radius: 50%;
+            background: #1f3c88;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.25s ease;
+            border: 2px solid transparent;
+        }
+
+        /* SHOW ON HOVER */
+        .project-carousel:hover .carousel-control-prev,
+        .project-carousel:hover .carousel-control-next {
             opacity: 1;
         }
 
+        /* MOBILE ALWAYS VISIBLE */
+        @media (max-width: 768px) {
+            .project-carousel .carousel-control-prev,
+            .project-carousel .carousel-control-next {
+                opacity: 1;
+            }
+        }
+
+        /* POSITION */
         .project-carousel .carousel-control-prev {
-            left: -3rem;
+            left: -20px;
         }
 
         .project-carousel .carousel-control-next {
-            right: -3rem;
+            right: -20px;
         }
 
-        .project-carousel .carousel-control-prev-icon,
-        .project-carousel .carousel-control-next-icon {
-            background-image: none;
-            width: auto;
-            height: auto;
+        /* ICON DEFAULT */
+        .project-carousel i {
+            color: #cfdff4;
+            font-size: 16px;
+            transition: 0.25s ease;
         }
 
-        .project-carousel .carousel-control-prev::after,
-        .project-carousel .carousel-control-next::after {
-            font-size: 36px;
-            font-weight: 900;
-            color: #0b2a7a;
+        /* 🔥 HOVER EFFECT (YOUR STYLE) */
+        .project-carousel .carousel-control-prev:hover,
+        .project-carousel .carousel-control-next:hover {
+            background: #cfdff4; 
+            backdrop-filter: blur(8px);
+            border: 2px solid #1f3c88;
         }
 
-        .project-carousel .carousel-control-prev::after {
-            content: '<';
+        /* ICON ON HOVER */
+        .project-carousel .carousel-control-prev:hover i,
+        .project-carousel .carousel-control-next:hover i {
+            color: #1f3c88;
         }
 
-        .project-carousel .carousel-control-next::after {
-            content: '>';
+        /* OPTIONAL SMOOTH SCALE */
+        .project-carousel .carousel-control-prev:hover,
+        .project-carousel .carousel-control-next:hover {
+            transform: translateY(-50%) scale(1.08);
         }
-
-        .project-carousel .carousel-control-prev:hover::after,
-        .project-carousel .carousel-control-next:hover::after {
-            color: #162e6f;
-        }
-
-        @media (max-width: 768px) {
-            .project-carousel .carousel-control-prev {
-                left: -1.2rem;
-            }
-
-            .project-carousel .carousel-control-next {
-                right: -1.2rem;
-            }
-
-            .project-carousel .carousel-control-prev::after,
-            .project-carousel .carousel-control-next::after {
-                font-size: 28px;
-            }
-        }
-
         /* projects section ends here */
 
         /* kaggle section starts here */
@@ -796,7 +1032,8 @@
         }
 
         /* certificate section ends here */
-        
+
+
         /* contact section starts here */
 
         .contact-wrapper {
@@ -905,7 +1142,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                                <!-- <a class="nav-link" aria-current="page" href="index.html">Home</a> -->
+                                <a class="nav-link" aria-current="page" href="#home">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#about">About</a>
@@ -935,15 +1173,16 @@
         </div>
     </header>
 
-    <!--  MAIN CONTENT  -->
+    <!-- ================= MAIN CONTENT ================= -->
 
     <main id="content">
 
-        <!--  HOME SECTION -->
+        <!-- ========== HOME SECTION (FROM index.html) ========== -->
 
-        <section id="home" class="page active">
+        <!-- <section id="home" class="page active"> -->
+        <section id="home" class="Intro-section">
             <!-- --------------------------- Home section starts here ----------------------------->
-            <section class="Intro-section">
+            <!-- <section class="Intro-section">
                 <div class="container-fluid px-lg-5 pt-0">
                     <div class="row mt-2">
                         <div class="col-16 col-lg-14 col-xl-14">
@@ -981,13 +1220,71 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
+            <!-- <section class="Intro-section"> -->
+            <div class="container py-0">
+            <div class="tag-wrapper">
+            <div class="open-to-badge">
+                Open to internships and entry-level opportunities in Data Analytics & Data Science
+            </div>
+            </div>
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <h1 class="Intro-head display-4 fw-bold mb-3">
+                            Hi, my name is Vishwa Desai
+                        </h1>
+
+                        <h4>
+                        Aspiring Data Analyst
+                        </h4>
+
+                        <h6 class="mb-3">
+                            Python • SQL • Power BI • Machine Learning
+                        </h6>
+
+                        <div class="intro-divider"></div>
+                        <div class="custom-card container">
+                        <div class="intro-card px-4 py-3 mt-3">
+                        <p class="Intro-text mt-2">
+                        This portfolio represents my journey in data science, showcasing projects built through hands-on learning and real-world problem solving.
+                        </p>
+
+                        <p class="Intro-text">
+                        My work focuses on data analysis, machine learning, and visualization — turning raw data into meaningful insights.
+                        </p>
+
+                        <p class="Intro-text">
+                        Through each project, I aim to improve my ability to think critically, analyze patterns, and build practical solutions.
+                        </p>
+
+                        <p class="Intro-text mb-1">
+                        This website is continuously evolving as I learn new tools, complete projects, and grow as a data professional.
+                        </p>
+                        </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <a href="#projects" class="btn-download me-3">View My Work</a>
+                            <a href="./Resume/Resume.pdf" class="btn-download">Download Resume</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        <!-- </section> -->
             <!-- ------------------------------- Home section ends here -------------------------------->
         </section>
 
         <!--  ABOUT  -->
 
-        <section id="about" class="page">
+        <!--  <section id="about" class="page">-->
+        <section id="about" class="container py-1">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="line"></div>
+            </div>
             <!-- --------------------------- about section starts here ----------------------------->
             <section class="about-intro pb-5">
                 <div class="custom-card container">
@@ -999,21 +1296,17 @@
                         <div class="col-lg-8">
 
                             <h2 class="about-intro-title">
-                                LET ME <br> INTRODUCE <br> MYSELF
+                                The Person <br> Behind the <br> Projects 
                             </h2>
 
                             <p class="about-intro-para mt-3">
-                                My name is Vishwa Desai. I am currently pursuing a Post Graduate Program in Data
-                                Science.
-                                I am curious about how data works behind real-life systems and how meaningful insights
-                                can be extracted from it.
-                                I enjoy working with Python, SQL, statistics, and data visualization.
-                                I like exploring datasets, creating notebooks, and building small projects to strengthen
-                                my understanding.
-                                Most of my learning comes from practice — Kaggle notebooks, GitHub projects, online
-                                courses, and continuous experimentation.
-                                My goal is to become a skilled data professional who can solve real-world problems using
-                                data-driven approaches.
+                                Hi, I’m Vishwa Desai — a Data Science postgraduate with a strong curiosity for how data powers real-world systems.
+
+                                I work with Python, SQL, and visualization tools to explore datasets, uncover patterns, and turn raw data into meaningful insights.
+
+                                My approach to learning is hands-on — building projects, experimenting with data, and continuously improving through practical experience.
+                                <br>
+                                <span class="highlight-text">Goal:</span> To grow into a data professional who solves real-world problems through data-driven thinking.
                             </p>
 
                             <div class="mt-4">
@@ -1031,23 +1324,26 @@
 
         <!--  SKILLS  -->
 
-        <section id="skills" class="page">
-            <section class="container py-4">
+        <!-- <section id="skills" class="page"> -->
+        <section id="skills" class="container py-1">
+                <div class="section-header">
+                    <h2>Skills</h2>
+                    <div class="line"></div>
+                </div>
                 <div class="transition-card p-4">
-                    <h3><strong>My Journey</strong></h3>
+                    <h3><strong>My Journey into Data Science</strong></h3>
                     <p>
-                        I started my career in Web Development where I worked with
-                        React.js, ASP.NET Core, APIs and databases.
-                        While working on backend and data handling tasks,
-                        I developed a strong interest in Data Science and analytics.
-                        I am now transitioning into Data Science, focusing on Python, SQL,
-                        statistics and machine learning, while leveraging my development background.
+                        I started in Web Development, building applications using React, ASP.NET Core, and backend systems.
+
+                        Working closely with data sparked my interest in data science — understanding patterns, extracting insights, and solving problems beyond code.
+
+                        Today, I focus on Python, SQL, statistics, and machine learning, blending development experience with data-driven thinking.
                     </p>
                 </div>
             </section>
 
             <!-- --------------------------- skills section starts here ----------------------------->
-            <section class="container">
+            <!-- <section class="container">
                 <div class="col-lg-12">
                     <div class="custom-card p-4">
                         <h3>Skills</h3>
@@ -1106,15 +1402,91 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- ------------------------------- skills section ends here -------------------------------->
+            <!-- </section> -->
+            <section class="container skills-section py-1">
+
+            <div class="row g-4">
+
+                <!-- Card 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <h5>Programming & Analytics</h5>
+                        <div class="skill-pills">
+                            <span>Python</span>
+                            <span>SQL</span>
+                            <span>C</span>
+                            <span>C#</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <h5>Data & Visualization</h5>
+                        <div class="skill-pills">
+                            <span>Excel</span>
+                            <span>Tableau</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <h5>Databases</h5>
+                        <div class="skill-pills">
+                            <span>MySQL</span>
+                            <span>MongoDB</span>
+                            <span>SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="skill-card">
+                        <h5>Libraries & Frameworks</h5>
+                        <div class="skill-pills">
+                            <span>Pandas</span>
+                            <span>NumPy</span>
+                            <span>Matplotlib</span>
+                            <span>React</span>
+                            <span>Bootstrap</span>
+                            <span>ASP.NET Core</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="skill-card">
+                        <h5>Soft Skills</h5>
+                        <div class="skill-pills">
+                            <span>Communication</span>
+                            <span>Problem Solving</span>
+                            <span>Time Management</span>
+                            <span>Leadership</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <!--  EXPERIENCE  -->
 
-        <section id="experience" class="page">
-            <!-- --------------------------- experience section starts here ----------------------------->
-            <section class="container py-4">
+        <!-- <section id="experience" class="page"> -->
+        <!-- --------------------------- experience section starts here ----------------------------->
+        <section id="experience" class="container py-4">
+                <div class="section-header">
+                    <h2>Experience</h2>
+                    <div class="line"></div>
+                </div>
                 <div class="col-lg-12">
                     <div class="custom-card p-4">
                         <h3>Professional Experience</h3>
@@ -1125,7 +1497,7 @@
                             <div class="timeline-item">
                                 <span class="timeline-dot"></span>
                                 <div class="timeline-content">
-                                    <h6>Intern · Jul 2023 – Aug 2023</h6>
+                                    <h6>Web Development Intern | Jul 2023 – Aug 2023</h6>
                                     <p class="company">WebForest LLP — Surat</p>
                                     <p>React.js frontend, basic Node.js backend, MongoDB database</p>
                                 </div>
@@ -1178,13 +1550,17 @@
                 </div>
             </section>
             <!-- ------------------------------- experience section ends here -------------------------------->
-        </section>
 
         <!--  PROJECTS  -->
 
-        <section id="projects" class="page">
+        <!-- <section id="projects" class="page"> -->
+        <section id="projects" class="container py-5">
+            <div class="section-header">
+                <h2>Projects</h2>
+                <div class="line"></div>
+            </div>
             <!-- ------------------------------- start python section -------------------------------->
-            <section id="python-projects" class="container my-5">
+            <section id="python-projects" class="container">
 
                 <h2 class="text-center mb-2" style="color:#0f1f4d;font-family:Poppins;font-weight:700;">
                     🐍 Python Projects
@@ -1346,21 +1722,26 @@
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#pythonCarousel"
                         data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#pythonCarousel" data-bs-slide="prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
                     </button>
 
                     <button class="carousel-control-next" type="button" data-bs-target="#pythonCarousel"
                         data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
+                        <button class="carousel-control-next" type="button" data-bs-target="#pythonCarousel" data-bs-slide="next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </button>
 
                 </div>
+                <p class="swipe-hint">← Swipe to explore →</p>
 
             </section>
 
             <!-- ------------------------------- End python section -------------------------------->
             <!-- ------------------------------- start SQL section -------------------------------->
-            <section id="sql-projects" class="container my-5">
+            <section id="sql-projects" class="container">
 
                 <h2 class="text-center mb-2" style="color:#0f1f4d;font-family:Poppins;font-weight:700;">
                     🗄 SQL Projects
@@ -1546,20 +1927,25 @@
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#sqlCarousel"
                         data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#pythonCarousel" data-bs-slide="prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
                     </button>
 
                     <button class="carousel-control-next" type="button" data-bs-target="#sqlCarousel"
                         data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
+                        <button class="carousel-control-next" type="button" data-bs-target="#pythonCarousel" data-bs-slide="next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </button>
 
                 </div>
+                <p class="swipe-hint">← Swipe to explore →</p>
 
             </section>
             <!-- ------------------------------- end SQL section -------------------------------->
             <!-- ------------------------------- start EDA section -------------------------------->
-            <section id="eda-projects" class="container my-5">
+            <section id="eda-projects" class="container">
 
                 <h2 class="text-center mb-2" style="color:#0f1f4d;font-family:Poppins;font-weight:700;">
                     📌 EDA / Kaggle Projects
@@ -1719,15 +2105,20 @@
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#edaCarousel"
                         data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#pythonCarousel" data-bs-slide="prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
                     </button>
 
                     <button class="carousel-control-next" type="button" data-bs-target="#edaCarousel"
                         data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
+                        <button class="carousel-control-next" type="button" data-bs-target="#pythonCarousel" data-bs-slide="next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </button>
 
                 </div>
+                <p class="swipe-hint">← Swipe to explore →</p>
 
             </section>
             <!-- ------------------------------- end EDA section -------------------------------->
@@ -1735,13 +2126,18 @@
 
         <!--  KAGGLE  -->
 
-        <section id="kaggle" class="page">
+        <!-- <section id="kaggle" class="page"> -->
+        <section id="kaggle" class="container py-1">
+            <div class="section-header">
+                <h2>Kaggle Profile</h2>
+                <div class="line"></div>
+            </div>
             <!-- --------------------------- Kaggle section starts here ----------------------------->
-            <section class="py-5">
+            <section class="py-2">
                 <div class="container">
 
                     <div class="text-center mb-5">
-                        <h2 class="cert-title">Kaggle Notebooks</h2>
+                        <!-- <h2 class="cert-title">Kaggle Notebooks</h2> -->
                         <div class="cert-subtitle">
                             Maintaining a Kaggle streak matters more than a Snapchat streak.
                         </div>
@@ -1838,8 +2234,9 @@
                     </div>
 
                 </div>
-            <!-- ------------------------------- Badge section ends here -------------------------------->
-            <section class="container mt-3">
+            </section>
+            <!-- Badge section starts here -->
+            <section class="container ">
             <div class="custom-card p-4 kaggle-badge-card">
 
                 <h3 class="section-title">Kaggle Badges</h3>
@@ -1894,20 +2291,24 @@
                 </div>
             </div>
             </section>
-            <!-- ------------------------------- Badge section ends here -------------------------------->
-            </section>
             <!-- ------------------------------- Kaggle section ends here -------------------------------->
         </section>
 
         <!--  CERTIFICATES  -->
 
-        <section id="certificates" class="page">
+        <!-- <section id="certificates" class="page"> -->
+        <section id="certificates">
+            <section class="container py-1">
+                <div class="section-header">
+                    <h2>Certificates</h2>
+                    <div class="line"></div>
+                </div>
             <!-- --------------------------- certificate section starts here ----------------------------->
-            <section class="py-5">
+            <section class="py-2">
                 <div class="container">
 
                     <div class="text-center mb-5">
-                        <h2 class="cert-title">Certificates</h2>
+                        <!-- <h2 class="cert-title">Certificates</h2> -->
                         <div class="cert-subtitle">
                             Click any certificate to open the full PDF
                         </div>
@@ -2025,15 +2426,22 @@
 
                 });
             </script>
-
+            </section>
             <!-- ------------------------------- certificate section ends here -------------------------------->
         </section>
 
         <!--  CONTACT  -->
 
-        <section id="contact" class="page">
+        <!-- <section id="contact" class="page"> -->
+        <section id="contact">
+            <section class="container py-1">
+                <div class="section-header">
+                    <h2>Contact Me</h2>
+                    <div class="line"></div>
+                </div>
             <!-- --------------------------- contact section starts here ----------------------------->
             <section class="contact-wrapper py-5">
+
                 <div class="container">
                     <div class="row justify-content-center">
 
@@ -2041,7 +2449,7 @@
                             <div class="custom-card contact-card p-3">
 
                                 <h3 class="contact-title">Stay in touch</h3>
-                                <p class="contact-title mb-3">Use this contact form to send me msg</p>
+                                <p class="contact-title mb-3">Feel free to reach out for opportunities, collaborations, or just to connect.</p>
 
                                 <form id="contactForm">
 
@@ -2088,6 +2496,7 @@
                     </div>
                 </div>
             </section>
+            </section>
             <!-- ------------------------------- End contact section -------------------------------->
         </section>
 
@@ -2120,7 +2529,7 @@
     <script>
         /* HASH ROUTER */
 
-        function showPageFromHash() {
+        /*function showPageFromHash() {
             const hash = window.location.hash.replace("#", "") || "home";
 
             document.querySelectorAll(".page").forEach(page => {
@@ -2141,8 +2550,29 @@
         }
 
         window.addEventListener("hashchange", showPageFromHash);
-        window.addEventListener("DOMContentLoaded", showPageFromHash);
+        window.addEventListener("DOMContentLoaded", showPageFromHash);*/
 
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+            let scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute("id");
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove("active");
+                        if (link.getAttribute("href") === "#" + sectionId) {
+                            link.classList.add("active");
+                        }
+                    });
+                }
+            });
+        });
 
         /* VALIDATION HELPERS */
 
@@ -2174,7 +2604,7 @@
                 const email = cemail.value.trim();
                 const phone = cphone.value.trim();
                 const message = cmessage.value.trim();
-                const status = document.getElementById("cStatus");;
+                const status = cStatus;
 
                 if (name.length < 2) return status.textContent = "❌ Name too short";
                 if (!isValidEmail(email)) return status.textContent = "❌ Invalid email";
@@ -2252,13 +2682,4 @@
 
 </body>
 
-
 </html>
-
-
-
-
-
-
-
-
