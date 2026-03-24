@@ -18,6 +18,9 @@
     <!-- Custom CSS -->
 
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./img/icon.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="./img/icon.png" sizes="16x16" type="image/png">
+    <link rel="shortcut icon" href="./img/icon.png" type="image/png">
 
     <style>
         /* -------- SPA PAGE SYSTEM -------- */
@@ -51,6 +54,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         h1,
@@ -77,7 +81,7 @@
         /* navbar section starts here */
 
         .header_area .main-menu .navbar {
-            min-height: 70px;
+            min-height: 50px;
             background-color: #1f3c88 !important;
             box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
             transition: box-shadow .3s ease;
@@ -97,7 +101,7 @@
         }
 
         .header_area .main-menu .navbar-brand img {
-            height: 90px;
+            height: 50px;
             width: auto;
             object-fit: contain;
         }
@@ -111,7 +115,7 @@
         .header_area .main-menu .nav-item .nav-link {
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 14px;
             padding: 1.2rem 1.5rem;
             color: #ffffff;
             border-radius: 6px;
@@ -257,7 +261,7 @@
         }
 
         .Intro-head {
-            font-size: 2.8rem;
+            font-size: 2.3rem;
         }
 
         .intro-divider {
@@ -361,6 +365,21 @@
             transform: none;
         }
         }
+
+        #changing-text {
+            display: inline-block;
+            transition: all 0.5s ease;
+        }
+
+        .cursor {
+        display: inline-block;
+        margin-left: 2px;
+        animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+        50% { opacity: 0; }
+        }
         /* home section ends here */
 
         /* footer section starts here */
@@ -448,7 +467,7 @@
         /* paragraph */
         .about-intro-para {
             font-family: 'Inter', sans-serif;
-            font-size: 1.05rem;
+            font-size: 0.80rem;
             line-height: 1.7;
             color: #0f1f4d;
             text-align: justify;
@@ -474,7 +493,7 @@
             border-radius: 8px;
 
             font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.80rem;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -552,7 +571,7 @@
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 0.90rem;
             font-weight: 600;
             margin-bottom: 20px;
         }
@@ -589,7 +608,7 @@
             padding: 6px 14px;
             border-radius: 20px;
             border: 1.5px solid #0f1f4d;
-            font-size: 0.9rem;
+            font-size: 0.80rem;
             background: #cfdff4;
             transition: 0.2s;
         }
@@ -655,7 +674,7 @@
 
         /* tighter spacing */
         .education-card p {
-            font-size: 0.9rem;
+            font-size: 0.80rem;
             color: #0f1f4d;
         }
 
@@ -695,7 +714,7 @@
         }
 
         .timeline-content .company {
-            font-size: 0.85rem;
+            font-size: 0.80rem;
             opacity: 0.8;
         }
 
@@ -772,7 +791,7 @@
         /* ICON DEFAULT */
         .project-carousel i {
             color: #cfdff4;
-            font-size: 16px;
+            font-size: 14px;
             transition: 0.25s ease;
         }
 
@@ -983,7 +1002,7 @@
 
         .cert-subtitle {
             font-family: 'Inter', sans-serif;
-            font-size: .85rem;
+            font-size: .80rem;
             color: #1f3c88;
             position: relative;
             display: inline-block;
@@ -1055,7 +1074,7 @@
         }
 
         .contact-label {
-            font-size: 1rem;
+            font-size: 0.90rem;
             font-weight: 600;
             color: #0f1f4d;
         }
@@ -1228,15 +1247,15 @@
                 Open to internships and entry-level opportunities in Data Analytics & Data Science
             </div>
             </div>
-                <div class="row">
+                <div class="row py-1">
                     <div class="col-lg-12">
 
                         <h1 class="Intro-head display-4 fw-bold mb-3">
-                            Hi, my name is Vishwa Desai
+                            Hi, I'm Vishwa
                         </h1>
 
                         <h4>
-                        Aspiring Data Analyst
+                        <span id="changing-text"></span><span class="cursor">|</span>
                         </h4>
 
                         <h6 class="mb-3">
@@ -1286,7 +1305,7 @@
                 <div class="line"></div>
             </div>
             <!-- --------------------------- about section starts here ----------------------------->
-            <section class="about-intro pb-5">
+            <section class="about-intro pb-5 py-0">
                 <div class="custom-card container">
                     <div class="row align-items-center">
                         <div class="col-lg-4 text-center">
@@ -1482,7 +1501,7 @@
 
         <!-- <section id="experience" class="page"> -->
         <!-- --------------------------- experience section starts here ----------------------------->
-        <section id="experience" class="container py-4">
+        <section id="experience" class="container py-6">
                 <div class="section-header">
                     <h2>Experience</h2>
                     <div class="line"></div>
@@ -1554,13 +1573,13 @@
         <!--  PROJECTS  -->
 
         <!-- <section id="projects" class="page"> -->
-        <section id="projects" class="container py-5">
+        <section id="projects" class="container py-3">
             <div class="section-header">
                 <h2>Projects</h2>
                 <div class="line"></div>
             </div>
             <!-- ------------------------------- start python section -------------------------------->
-            <section id="python-projects" class="container">
+            <section id="python-projects" class="container py-1">
 
                 <h2 class="text-center mb-2" style="color:#0f1f4d;font-family:Poppins;font-weight:700;">
                     🐍 Python Projects
@@ -1741,7 +1760,7 @@
 
             <!-- ------------------------------- End python section -------------------------------->
             <!-- ------------------------------- start SQL section -------------------------------->
-            <section id="sql-projects" class="container">
+            <section id="sql-projects" class="container py-1">
 
                 <h2 class="text-center mb-2" style="color:#0f1f4d;font-family:Poppins;font-weight:700;">
                     🗄 SQL Projects
@@ -1945,7 +1964,7 @@
             </section>
             <!-- ------------------------------- end SQL section -------------------------------->
             <!-- ------------------------------- start EDA section -------------------------------->
-            <section id="eda-projects" class="container">
+            <section id="eda-projects" class="container py-1">
 
                 <h2 class="text-center mb-2" style="color:#0f1f4d;font-family:Poppins;font-weight:700;">
                     📌 EDA / Kaggle Projects
@@ -2127,7 +2146,7 @@
         <!--  KAGGLE  -->
 
         <!-- <section id="kaggle" class="page"> -->
-        <section id="kaggle" class="container py-1">
+        <section id="kaggle" class="container py-3">
             <div class="section-header">
                 <h2>Kaggle Profile</h2>
                 <div class="line"></div>
@@ -2297,8 +2316,7 @@
         <!--  CERTIFICATES  -->
 
         <!-- <section id="certificates" class="page"> -->
-        <section id="certificates">
-            <section class="container py-1">
+        <section id="certificates" class="container py-0">
                 <div class="section-header">
                     <h2>Certificates</h2>
                     <div class="line"></div>
@@ -2426,7 +2444,6 @@
 
                 });
             </script>
-            </section>
             <!-- ------------------------------- certificate section ends here -------------------------------->
         </section>
 
@@ -2552,26 +2569,87 @@
         window.addEventListener("hashchange", showPageFromHash);
         window.addEventListener("DOMContentLoaded", showPageFromHash);*/
 
-        const sections = document.querySelectorAll("section[id]");
-        const navLinks = document.querySelectorAll(".nav-link");
+        const texts = [
+        "and I'm a Data Analyst",
+        // "and I'm a Data Scientist",
+        // "and I'm a Data Expert",
+        "and I'm a Quick Adapter"
+        ];
 
-        window.addEventListener("scroll", () => {
-            let scrollY = window.pageYOffset;
+        let i = 0;
+        let currentText = "";
+        let el = document.getElementById("changing-text");
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute("id");
+        function getCommonPrefix(a, b) {
+        let i = 0;
+        while (i < a.length && i < b.length && a[i] === b[i]) {
+            i++;
+        }
+        return a.slice(0, i);
+        }
 
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove("active");
-                        if (link.getAttribute("href") === "#" + sectionId) {
-                            link.classList.add("active");
-                        }
-                    });
-                }
-            });
+        function typeEffect(newText) {
+        let common = getCommonPrefix(currentText, newText);
+        let deletePart = currentText.slice(common.length);
+        let addPart = newText.slice(common.length);
+
+        // DELETE ONLY EXTRA PART
+        let deleteIndex = deletePart.length;
+
+        function deleteStep() {
+            if (deleteIndex > 0) {
+            deleteIndex--;
+            currentText = currentText.slice(0, common.length + deleteIndex);
+            el.textContent = currentText;
+            setTimeout(deleteStep, 40);
+            } else {
+            typeStep();
+            }
+        }
+
+        // TYPE NEW PART
+        let addIndex = 0;
+
+        function typeStep() {
+            if (addIndex < addPart.length) {
+            currentText += addPart[addIndex];
+            el.textContent = currentText;
+            addIndex++;
+            setTimeout(typeStep, 60);
+            } else {
+            setTimeout(nextText, 1500);
+            }
+        }
+
+        deleteStep();
+        }
+
+        function nextText() {
+        i = (i + 1) % texts.length;
+        typeEffect(texts[i]);
+        }
+
+        // START
+        typeEffect(texts[i]);
+
+        const sections = document.querySelectorAll("section[id]"); 
+        const navLinks = document.querySelectorAll(".nav-link"); 
+
+        window.addEventListener("scroll", () => { 
+            let scrollY = window.pageYOffset; 
+            sections.forEach(section => { 
+                const sectionTop = section.offsetTop - 120; 
+                const sectionHeight = section.offsetHeight; 
+                const sectionId = section.getAttribute("id"); 
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) { 
+                    navLinks.forEach(link => { 
+                        link.classList.remove("active"); if (link.getAttribute("href") === "#" + sectionId) { 
+                            link.classList.add("active"); 
+                        } 
+                    }); 
+                } 
+            }); 
         });
 
         /* VALIDATION HELPERS */
